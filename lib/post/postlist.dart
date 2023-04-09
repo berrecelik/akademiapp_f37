@@ -23,7 +23,6 @@ class PostList extends StatelessWidget {
           return ListView.builder(
             itemCount: snapshot.data!.docs.length,
             itemBuilder: (BuildContext context, int index) {
-              // Step 6: Display each post as a card
               final post = Post(
                 title: snapshot.data!.docs[index]['title'],
                 content: snapshot.data!.docs[index]['content'],
@@ -45,7 +44,6 @@ class PostList extends StatelessWidget {
                     subtitle: Text(post.content),
                     trailing: Text(post.author),
                     onTap: () {
-                      // Step 7: Navigate to the post detail page
                       Navigator.push(
                         context,
                         MaterialPageRoute(

@@ -2,7 +2,6 @@ import 'package:akademiapp_teamf37/sayfalar/register_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../homepage.dart';
 

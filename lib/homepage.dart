@@ -1,11 +1,12 @@
-import 'package:akademiapp_teamf37/homeui/homeui.dart';
 import 'package:akademiapp_teamf37/post/post_form.dart';
-import 'package:akademiapp_teamf37/profil/getusername.dart';
+
 import 'package:akademiapp_teamf37/sayfalar/addtodo_page.dart';
 import 'package:akademiapp_teamf37/sayfalar/category_page.dart';
 import 'package:akademiapp_teamf37/sayfalar/profil_page.dart';
+import 'package:akademiapp_teamf37/sayfalar/reminder_page.dart';
+import 'package:akademiapp_teamf37/sayfalar/staj_is_page.dart';
+
 import 'package:akademiapp_teamf37/sayfalar/todo_list_page.dart';
-import 'package:akademiapp_teamf37/sayfalar/todolist_page.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -27,13 +28,22 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         backgroundColor: Colors.redAccent[100],
         title: Text("Ana sayfa"),
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.logout),
+            tooltip: 'Oturumu kapat',
+            onPressed: () {
+              FirebaseAuth.instance.signOut();
+            },
+          ),
+        ],
       ),
       body: Center(
         child: SingleChildScrollView(
           child: Column(children: [
             Icon(
               Icons.assignment_ind,
-              size: 70,
+              size: 60,
               color: Colors.redAccent[100],
             ),
             SizedBox(
@@ -44,10 +54,7 @@ class _HomePageState extends State<HomePage> {
               style: TextStyle(fontSize: 25),
             ),
             SizedBox(
-              height: 15,
-            ),
-            SizedBox(
-              height: 45,
+              height: 30,
             ),
             ElevatedButton(
               style: ButtonStyle(
@@ -100,6 +107,27 @@ class _HomePageState extends State<HomePage> {
               ),
               onPressed: () {
                 Navigator.push(context,
+                    MaterialPageRoute(builder: (builder) => StajIsPage()));
+              },
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(Icons.add_business),
+                  SizedBox(width: 20.0),
+                  Text('Staj ve İş İlanları'),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor:
+                    MaterialStateProperty.all<Color>(Colors.redAccent),
+              ),
+              onPressed: () {
+                Navigator.push(context,
                     MaterialPageRoute(builder: (builder) => PostForm()));
               },
               child: Row(
@@ -127,7 +155,7 @@ class _HomePageState extends State<HomePage> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Icon(Icons.assignment_add),
-                  SizedBox(width: 30.0),
+                  SizedBox(width: 25.0),
                   Text('Yeni Görev Ekle'),
                 ],
               ),
@@ -148,7 +176,7 @@ class _HomePageState extends State<HomePage> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Icon(Icons.note_add),
-                  SizedBox(width: 5.0),
+                  SizedBox(width: 2.0),
                   Text('Yapılacaklar Listesi'),
                 ],
               ),
@@ -162,16 +190,20 @@ class _HomePageState extends State<HomePage> {
                     MaterialStateProperty.all<Color>(Colors.redAccent),
               ),
               onPressed: () {
-                FirebaseAuth.instance.signOut();
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (builder) => ReminderPage()));
               },
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Icon(Icons.logout),
-                  SizedBox(width: 30.0),
-                  Text('Oturumu kapat'),
+                  Icon(Icons.calendar_month),
+                  SizedBox(width: 20.0),
+                  Text('Akademi Takvim'),
                 ],
               ),
+            ),
+            SizedBox(
+              height: 15,
             ),
           ]),
         ),

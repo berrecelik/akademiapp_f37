@@ -1,9 +1,7 @@
-import 'package:akademiapp_teamf37/homepage.dart';
 import 'package:akademiapp_teamf37/sayfalar/todo_list_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../homeui/glowing_button.dart';
 
@@ -117,28 +115,6 @@ class _AddToDoPageState extends State<AddToDoPage> {
               hintText: "Detay ekleyin..",
               hintStyle: TextStyle(color: Colors.black, fontSize: 17)),
         ),
-      ),
-    );
-  }
-
-  Widget taskSelect(String label, int color) {
-    return InkWell(
-      onTap: () {
-        setState(() {
-          type = label;
-        });
-      },
-      child: Chip(
-        backgroundColor: type == label ? Colors.black : Color(color),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-        label: Text(
-          label,
-          style: TextStyle(
-              color: type == label ? Colors.white : Colors.black,
-              fontSize: 17,
-              fontWeight: FontWeight.w500),
-        ),
-        labelPadding: EdgeInsets.symmetric(horizontal: 10, vertical: 2),
       ),
     );
   }

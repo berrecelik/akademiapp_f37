@@ -1,19 +1,19 @@
-import 'package:akademiapp_teamf37/haber/haber_list.dart';
 import 'package:akademiapp_teamf37/homeui/glowing_button.dart';
+import 'package:akademiapp_teamf37/ilan/ilan_list.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-class HaberPage extends StatefulWidget {
-  const HaberPage({super.key});
+class StajIsPage extends StatefulWidget {
+  const StajIsPage({super.key});
 
   @override
-  State<HaberPage> createState() => _HaberPageState();
+  State<StajIsPage> createState() => _StajIsPageState();
 }
 
-class _HaberPageState extends State<HaberPage> {
+class _StajIsPageState extends State<StajIsPage> {
   final _formKey = GlobalKey<FormState>();
-  final _haberController = TextEditingController();
-  final _konuController = TextEditingController();
+  final _ilanController = TextEditingController();
+  final _detayController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,16 +24,16 @@ class _HaberPageState extends State<HaberPage> {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => HaberList()),
+                MaterialPageRoute(builder: (context) => IlanList()),
               );
             },
             child: const Text(
-              'Tüm Haberler',
+              'Tüm İlanlar',
               style: TextStyle(color: Colors.white),
             ),
           ),
         ],
-        title: Text("Haber"),
+        title: Text("İlanlar"),
       ),
       body: Column(
         children: [
@@ -53,12 +53,13 @@ class _HaberPageState extends State<HaberPage> {
                   ),
                   color: Colors.grey[200],
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       SizedBox(
                         height: 10,
                       ),
                       Text(
-                        "Yeni Haberler",
+                        "Yeni ilan Ekle",
                         style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
@@ -68,8 +69,8 @@ class _HaberPageState extends State<HaberPage> {
                         height: 10,
                       ),
                       TextFormField(
-                        cursorColor: Colors.blue,
-                        controller: _konuController,
+                        cursorColor: Colors.redAccent,
+                        controller: _ilanController,
                         decoration: InputDecoration(
                             enabledBorder: UnderlineInputBorder(
                               borderSide: BorderSide(color: Colors.redAccent),
@@ -77,13 +78,13 @@ class _HaberPageState extends State<HaberPage> {
                             focusedBorder: UnderlineInputBorder(
                               borderSide: BorderSide(color: Colors.redAccent),
                             ),
-                            labelText: 'Konu Başlığı',
+                            labelText: 'İlan Başlığı',
                             labelStyle: TextStyle(
                                 fontSize: 15, color: Colors.redAccent)),
                       ),
                       TextFormField(
-                        cursorColor: Colors.blue,
-                        controller: _haberController,
+                        cursorColor: Colors.redAccent,
+                        controller: _detayController,
                         decoration: InputDecoration(
                             enabledBorder: UnderlineInputBorder(
                               borderSide: BorderSide(color: Colors.redAccent),
@@ -91,7 +92,7 @@ class _HaberPageState extends State<HaberPage> {
                             focusedBorder: UnderlineInputBorder(
                               borderSide: BorderSide(color: Colors.redAccent),
                             ),
-                            labelText: 'Haber ekleyin',
+                            labelText: 'Link ekleyin',
                             labelStyle: TextStyle(
                                 fontSize: 15, color: Colors.redAccent)),
                       ),
@@ -104,26 +105,24 @@ class _HaberPageState extends State<HaberPage> {
                           color2: Colors.white70,
                           onTap: () async {
                             if (_formKey.currentState!.validate()) {
-                              // Step 5: Add the post to Firestore
                               await FirebaseFirestore.instance
-                                  .collection('haber')
+                                  .collection('ilan')
                                   .add({
-                                'haber': _haberController.text,
-                                'konu': _konuController.text
+                                'ilan': _ilanController.text,
+                                'detay': _detayController.text,
                               });
                               setState(() {
-                                _haberController.text = "";
-                                _konuController.text = "";
+                                _ilanController.text = "";
+                                _detayController.text = "";
                               });
-
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => HaberList()),
+                                    builder: (context) => IlanList()),
                               );
                             }
                           },
-                          buttonText: 'Gönder',
+                          buttonText: 'Ekle',
                         ),
                       ),
                     ],

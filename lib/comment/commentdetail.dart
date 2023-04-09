@@ -14,8 +14,6 @@ class CommentDetail extends StatefulWidget {
 }
 
 class _CommentDetailState extends State<CommentDetail> {
-  final _commentController = TextEditingController();
-  final _nameController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(

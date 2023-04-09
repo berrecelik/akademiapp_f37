@@ -9,7 +9,6 @@ class Haber {
     required this.konu,
   });
 
-  // Firebase'dan verileri çekmek için kullanılan named constructor
   Haber.fromSnapshot(
     DocumentSnapshot snapshot,
   )   : haber = snapshot['haber'],

@@ -50,6 +50,13 @@ class _MyCategoryListPageState extends State<MyCategoryListPage> {
         SubCategory(name: 'Haber', route: '/Girişimcilik/Haber'),
       ],
     ),
+    Category(
+      name: 'Proje Yönetimi',
+      subcategories: [
+        SubCategory(name: 'Link', route: '/ProjeYönetimi/Link'),
+        SubCategory(name: 'Haber', route: '/ProjeYönetimi/Haber'),
+      ],
+    ),
   ];
 
   @override

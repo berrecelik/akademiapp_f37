@@ -22,7 +22,6 @@ class HaberList extends StatelessWidget {
           return ListView.builder(
             itemCount: snapshot.data!.docs.length,
             itemBuilder: (BuildContext context, int index) {
-              // Step 6: Display each post as a card
               final haber = Haber(
                 haber: snapshot.data!.docs[index]['haber'],
                 konu: snapshot.data!.docs[index]['konu'],

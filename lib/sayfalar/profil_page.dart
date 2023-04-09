@@ -1,4 +1,4 @@
-import 'package:akademiapp_teamf37/ayarlar/settings_page.dart';
+import 'package:akademiapp_teamf37/ayarlar/settingspage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -21,11 +21,10 @@ class _ProfileState extends State<Profile> {
         title: Text("Profilim"),
         actions: <Widget>[
           IconButton(
-            icon: const Icon(Icons.settings),
-            tooltip: 'Ayarlar',
+            icon: const Icon(Icons.more_vert),
             onPressed: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (builder) => SettingsPage()));
+                  MaterialPageRoute(builder: (builder) => DetayPage()));
             },
           ),
         ],

@@ -26,7 +26,9 @@ class MyApp extends StatelessWidget {
       '/Tasarım/Haber': (context) => HaberPage(),
       '/Unity/Haber': (context) => HaberPage(),
       '/Girişimcilik/Link': (context) => LinkPage(),
-      '/Girişmcilik/Haber': (context) => HaberPage(),
+      '/Girişimcilik/Haber': (context) => HaberPage(),
+      '/ProjeYönetimi/Link': (context) => LinkPage(),
+      '/ProjeYönetimi/Haber': (context) => HaberPage(),
     });
   }
 }

@@ -9,7 +9,6 @@ class Link {
     required this.konu,
   });
 
-  // Firebase'dan verileri çekmek için kullanılan named constructor
   Link.fromSnapshot(
     DocumentSnapshot snapshot,
   )   : link = snapshot['link'],

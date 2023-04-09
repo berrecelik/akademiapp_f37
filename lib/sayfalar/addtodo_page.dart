@@ -84,6 +84,10 @@ class _AddToDoPageState extends State<AddToDoPage> {
                               context,
                               MaterialPageRoute(
                                   builder: (builder) => ToDoListPage()));
+                          setState(() {
+                            _titleController.text = '';
+                            _detayController.text = "";
+                          });
                         },
                         buttonText: 'Ekle',
                       ),

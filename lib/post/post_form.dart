@@ -120,7 +120,6 @@ class _PostFormState extends State<PostForm> {
                 color2: Colors.white70,
                 onTap: () async {
                   if (_formKey.currentState!.validate()) {
-                    // Step 5: Add the post to Firestore
                     await FirebaseFirestore.instance.collection('posts').add({
                       'title': _titleController.text,
                       'content': _contentController.text,
@@ -128,11 +127,15 @@ class _PostFormState extends State<PostForm> {
                       'createdAt': DateTime.now(),
                     });
 
-                    // Step 6: Navigate to the post list page
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => PostList()),
                     );
+                    setState(() {
+                      _titleController.text = '';
+                      _contentController.text = "";
+                      _authorController.text = "";
+                    });
                   }
                 },
                 buttonText: 'Gönder',

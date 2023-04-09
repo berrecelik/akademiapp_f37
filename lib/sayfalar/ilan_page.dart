@@ -24,7 +24,7 @@ class _StajIsPageState extends State<StajIsPage> {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => IlanList()),
+                MaterialPageRoute(builder: (context) => AdList()),
               );
             },
             child: const Text(
@@ -111,15 +111,16 @@ class _StajIsPageState extends State<StajIsPage> {
                                 'ilan': _ilanController.text,
                                 'detay': _detayController.text,
                               });
+
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => AdList()),
+                              );
                               setState(() {
                                 _ilanController.text = "";
                                 _detayController.text = "";
                               });
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => IlanList()),
-                              );
                             }
                           },
                           buttonText: 'Ekle',

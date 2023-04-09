@@ -2,9 +2,9 @@ import 'package:akademiapp_teamf37/post/post_form.dart';
 
 import 'package:akademiapp_teamf37/sayfalar/addtodo_page.dart';
 import 'package:akademiapp_teamf37/sayfalar/category_page.dart';
+import 'package:akademiapp_teamf37/sayfalar/ilan_page.dart';
 import 'package:akademiapp_teamf37/sayfalar/profil_page.dart';
 import 'package:akademiapp_teamf37/sayfalar/reminder_page.dart';
-import 'package:akademiapp_teamf37/sayfalar/staj_is_page.dart';
 
 import 'package:akademiapp_teamf37/sayfalar/todo_list_page.dart';
 
